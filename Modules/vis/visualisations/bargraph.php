@@ -76,6 +76,17 @@
     var delta = urlParams.delta;
     if (delta==undefined || delta=='') delta = 0;
 
+	var initialview=urlParams.initialview;
+    if (initialview==undefined || initialview=='') initialview = 0;
+	if (initialview=="d")
+		initialview=60*60*24;
+	if (initialview=="w")
+		initialview=60*60*24*7;
+	if (initialview=="m")
+		initialview=60*60*24*31;
+	if (initialview=="y")
+		initialview=60*60*24*365;
+
     document.getElementById("textunitD").innerHTML=units;
     document.getElementById("textunitM").innerHTML=units;
     document.getElementById("textunitY").innerHTML=units;
@@ -114,6 +125,9 @@
        timeWindow = 3600000*24*10;
     else
        timeWindow = 3600000*24*31;
+
+	if (initialview!=0)
+		timeWindow=initialview*1000;
 
     view.start = +new Date - timeWindow;
     view.end = +new Date;

@@ -38,6 +38,7 @@
             array('units',_("units"),5,''),
             array('dp',_("dp"),7,'1'),
             array('scale',_("scale"),6,'1'),
+            array('initialview',_("initialview"),7,''),
             array('delta',_("delta"),7,'0'))
         ),
         
